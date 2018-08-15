@@ -275,9 +275,9 @@ public class DoWorkUtils {
             		continue;
             	}
             	if(Const.isApplicationEntry){
-            		if(str.contains(Const.applicationAttachLineTag)){
+            		if(str.contains(Const.applicationAttachLineTag) || str.contains(Const.applicationFinalAttachLineTag)){
             			isEntryMethod = 0;
-            		}else if(str.contains(Const.applicationCreateLineTag)){
+            		}else if(str.contains(Const.applicationCreateLineTag) || str.contains(Const.applicatiFinalonCreateLineTag)){
             			isEntryMethod = 1;
             		}
             	}else{

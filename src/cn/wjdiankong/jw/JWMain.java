@@ -191,12 +191,7 @@ public class JWMain {
 		if(!DoWorkUtils.insertHookCode()){
 			DoWorkUtils.deleteTmpFile(rootPath);
 			return;
-		}
-		
-		if(!DoWorkUtils.insertHookCode()){
-			DoWorkUtils.deleteTmpFile(rootPath);
-			return;
-		}
+		}		
 		
 		if(!DoWorkUtils.smaliToDex(rootPath+File.separator+Const.smaliTmpDir, rootPath + File.separator+"classes.dex")){
 			DoWorkUtils.deleteTmpFile(rootPath);
