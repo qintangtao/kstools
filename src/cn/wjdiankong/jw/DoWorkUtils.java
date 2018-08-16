@@ -43,7 +43,7 @@ public class DoWorkUtils {
 			long time = System.currentTimeMillis();
 			System.out.println("第二步==> 获取apk文件入口信息");
 			String enter = AnalysisApk.getAppEnterApplication(srcApkFile.getAbsolutePath());
-			Const.entryClassName = enter.replace(".", "/");
+			Const.entryClassName = enter; //.replace(".", "/");
 			System.out.println("应用入口类:"+enter);
 			System.out.println("获取apk入口类信息成功===耗时:"+((System.currentTimeMillis()-time)/1000)+"s\n\n");
 			return true;
@@ -184,7 +184,7 @@ public class DoWorkUtils {
 	}
 	
 	public static boolean findHookPoint() {
-		System.out.println("第七步==> 寻找hook点  in " + Const.entryClassName);
+		System.out.println("第七步==> 寻找hook点  ( " + Const.entryClassName + " )");
 		long startTime = System.currentTimeMillis();
 		String enterFile = JWMain.rootPath + Const.smaliTmpDir + File.separator + Const.entryClassName.replace(".", File.separator) + ".smali";
 		FileReader reader = null;
@@ -225,7 +225,7 @@ public class DoWorkUtils {
                 System.out.println("寻找hook点成功===耗时"+((System.currentTimeMillis()-startTime)/1000)+"s\n\n");
             	isWorkSucc = true;
 			} else {
-                System.out.println("需在父类继续寻找hook点===本次耗时"+((System.currentTimeMillis()-startTime)/1000)+"s\n\n");
+                System.out.println("寻找hook点失败===耗时"+((System.currentTimeMillis()-startTime)/1000)+"s\n\n");
                 if (superClassName != null) {
                 	Const.entryClassName = superClassName;
 				}
